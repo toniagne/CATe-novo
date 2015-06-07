@@ -1,0 +1,55 @@
+
+<ion-view view-title="" >
+  <ion-content  style='background-image: url("img/fundo.jpg"); width:100%; height: 100%; background-size: 100% 100%;'>
+     <center>
+      <br> 
+        &nbsp;&nbsp;<img src="img/botaoUnidades1.png" width="35%">
+     &nbsp;&nbsp;&nbsp;&nbsp;<img src="img/logo.png" width="55%"> 
+    </center>
+    <br>
+     <p align="left" class="fundoconteudo">
+      <b>No Serviço de Intermediação para o Trabalho do CATe</b>, você encontra, gratuitamente, os serviços:<br>
+      <br>
+      * Intermediação para o trabalho<br>
+      * Cursos de Qualificação Profissional – PRONATEC – Programa Nacional de Acesso ao Ensino Técnico e Emprego.<br>  "Orientação para o Trabalho Seleção".<br>
+      * Processo de Seleção<br>
+      * Atendimento às pessoas com deficiência (PCD)<br>
+      * Habilitação ao Seguro-Desemprego<br>
+      * Emissão de Carteira de Trabalho e Previdência Social (CTPS)<br>
+      * PACET - Consulta junto ao Sistema de Proteção ao Crédito – SPC e conciliação entre o devedor e o credor. <br>
+      * MEI – Formalização e orientação ao Micro Empreendedor Individual<br>
+      * Orientação trabalhista e previdenciária <br>
+    </p>
+     <br>
+     <p align="left" class="fundoconteudo">
+        <b>Você deve comparecer às unidades do CATe com os seguintes documentos:</b><br>
+        *  RG (Registro Geral)<br>
+        *  CPF<br>
+        *   PIS (Se houver)<br>
+        *  Carteira de Trabalho <br>
+        *  Comprovante de escolaridade<br>
+        *  Comprovante de residência<br>
+        *  Certificados de cursos (Se houver)<br>
+    </p>
+   <br>
+
+  <ion-list>
+        <div ng-repeat="group in unidades">
+          <ion-item class="item-stable" nav-clear
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+           {{group.name}}
+          </ion-item>
+          <ion-item class="item-accordion"
+                    ng-repeat="item in group.itens"
+                    ng-show="isGroupShown(group)">
+                    <div class="item item-text-wrap"style="background-color: #C1FFC1;"> {{item}} </div>
+          </ion-item>
+        </div>
+      </ion-list>
+<br><br>
+    <img src="img/logospatrocinadores.png" width="100%"><br>
+  </ion-content>
+</ion-view>

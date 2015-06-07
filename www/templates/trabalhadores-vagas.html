@@ -1,0 +1,52 @@
+
+<ion-view view-title="" >
+  <ion-content  style='background-image: url("img/fundo.jpg"); width:100%; height: 100%; background-size: 100% 100%;'>
+    <br> 
+     &nbsp;&nbsp;<img src="img/botao_pesquisa-{{iconetopo}}.png" width="45%">
+     &nbsp;&nbsp;&nbsp;&nbsp;<img src="img/logo.png" width="45%"> 
+     <Br>
+    <br>
+    <p align="justify" class="fundoconteudo">
+    • Todas as vagas aqui apresentadas estão cadastradas no sistema M.T.E. Mais Emprego, onde existem outras ofertas. A disponibilidade de encaminhamento está condicionada até o preenchimento total das mesmas, limite de encaminhamento da vaga e entre outros critérios subjetivos.<Br>
+    <Br>
+    • DOCUMENTAÇÃO NECESSÁRIA: RG, CPF, Carteira de Trabalho, Comprovante de Escolaridade, Comprovante de Residência e Certificados de Cursos (Se houver).<Br>
+    </p>
+
+    <center><h3> VAGAS DISPONÍVEIS </h3>
+        <font size="2" color="red">As Vagas abaixo poderão sofrer alterações até o final do dia.</font>
+    </center><Br>
+     <ion-list>
+        <div ng-repeat="group in vagas">
+          <ion-item class="item-stable"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-android-arrow-up' : 'ion-android-arrow-down'"></i>
+            &nbsp;
+           {{group.strNome}}
+          </ion-item>
+          <ion-item class="item-accordion"
+                    ng-repeat="item in group.itens"
+                    ng-show="isGroupShown(group)">
+            <div class="item item-text-wrap"style="background-color: #C1FFC1;"> {{item}} </div>
+          </ion-item>
+        </div>
+      </ion-list>
+      <br><Br>
+
+
+
+
+
+
+
+     <div class="fundoconteudobranco">
+      <center><b>Para participar de uma dessas vagas, faça Login ou Cadastro no MTE.</b></center><br>
+      <center>
+       <a ng-click="GotoLink('https://granulito.mte.gov.br/imoweb/')"><img src="img/botao_login_mte.png" width="80%"></a>
+       <br>
+       <a ng-href="https://maisemprego.mte.gov.br/imoweb/paginas/e-trabalhador/precadastro.xhtml"><img src="img/botao_site_mte.png" width="80%"></a> 
+       </center>
+    </div>
+    <img src="img/logospatrocinadores.png" width="100%"><br>
+  </ion-content>
+</ion-view>

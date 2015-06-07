@@ -1,0 +1,32 @@
+
+<ion-view view-title="" >
+  <ion-content  style='background-image: url("img/fundo.jpg"); width:100%; height: 100%; background-size: 100% 100%;'>
+     <center>
+      <br> 
+        &nbsp;&nbsp;<img src="img/botaoUnidades2.png" width="35%">
+     &nbsp;&nbsp;&nbsp;&nbsp;<img src="img/logo.png" width="55%"> 
+    </center>
+    <br>
+<ion-list>
+        <div ng-repeat="group in eventos">
+          <ion-item class="item-stable"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+           {{group.name}}
+          </ion-item>
+          <ion-item class="item-accordion"
+                    ng-repeat="item in group.itens"
+                    ng-show="isGroupShown(group)">
+                    <div class="item item-text-wrap"style="background-color: #C1FFC1;"> {{item}} </div>
+          </ion-item>
+        </div>
+      </ion-list>
+
+
+    
+<br><br>
+    <img src="img/logospatrocinadores.png" width="100%"><br>
+  </ion-content>
+</ion-view>

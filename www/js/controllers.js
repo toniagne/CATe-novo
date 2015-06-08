@@ -10,8 +10,24 @@ angular.module('starter.controllers', ['ionic'])
     
  })
 
-.controller('ChatsCtrl', function($scope, $http, $rootScope, $sce, $window) {
- 
+.controller('ChatsCtrl', function($scope, $http, $rootScope, $sce, $window, $ionicModal) {
+  
+  $ionicModal.fromTemplateUrl('templates/logintrabalhador.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+
+    $scope.showPopup = function(url) { 
+      $scope.endereco = $sce.trustAsResourceUrl(url);
+      $scope.modal.show();
+    }
+    
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
 
 $scope.trustUrl = function(url) { 
   return $sce.trustAsResourceUrl(url);

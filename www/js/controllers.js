@@ -199,30 +199,24 @@ $scope.linkModelFunc = function (url){
    
 })
 
-.controller('TrabalhadorVagas', function($scope, $rootScope, $http, $ionicLoading, $stateParams, $ionicPopup) {
-   
-  $scope.showPopup = function() {
-  $scope.data = {}
-
-  // An elaborate, custom popup('https://granulito.mte.gov.br/imoweb/')"
-  var myPopup = $ionicPopup.alert({
-    template: '<iframe src="https://granulito.mte.gov.br/imoweb/" height="500px"></iframe>',
-    title: 'Cadastro do trabalhador',
-    scope: $scope,
-    content: 'Carregando Vagas',
-    animation: 'fade-in',
-    showBackdrop: true,
-    width: '100%',
-    height:500,
-    buttons: [
-      { text: 'Fechar' }
-    ]
-  });
-  myPopup.then(function(res) {
-    console.log('Tapped!', res);
-  }); 
- };
+.controller('TrabalhadorVagas', function($scope, $sce, $rootScope, $http, $ionicLoading, $stateParams, $ionicPopup, $ionicModal) {
   
+   $ionicModal.fromTemplateUrl('templates/logintrabalhador.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+
+
+    $scope.showPopup = function(url) { 
+      $scope.endereco = $sce.trustAsResourceUrl(url);
+      $scope.modal.show();
+    }
+    
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
 
    $rootScope.GotoLink = function (url) {
           window.open(url,'_blank', "location=1,status=1,scrollbars=1");

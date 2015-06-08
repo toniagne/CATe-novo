@@ -2,10 +2,10 @@
 <widget id="com.neolig.CAT" version="1.1.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
   <name>CATe</name>
   <description>
-        An Ionic Framework and Cordova project.
-    </description>
+        Serviço de Intermediação para o Trabalho do CAT, serviços gratuítos do Trabalho
+  </description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+      Toni Schott Agne
     </author>
   <content src="index.html"/>
   <access origin="*"/>
